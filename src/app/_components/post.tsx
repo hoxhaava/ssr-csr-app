@@ -4,8 +4,11 @@ import { useState } from "react";
 
 import { api } from "~/trpc/react";
 
-export function LatestPost() {
-  const [latestPost] = api.post.getLatest.useSuspenseQuery();
+interface LatestPostProps {
+  initialData: { id: number; name: string } | null;
+}
+export function LatestPost({ initialData }: LatestPostProps) {
+  const [latestPost, setLatestPost] = useState(initialData)
 
   const utils = api.useUtils();
   const [name, setName] = useState("");
@@ -15,6 +18,7 @@ export function LatestPost() {
       setName("");
     },
   });
+
 
   return (
     <div className="w-full max-w-xs">
