@@ -2,7 +2,7 @@ import Navbar from '../_components/NavBar';
 
 const SSRPage = async () => {
     // Simulating server-side data fetching
-    const data = await fetchData();
+    const data = await fetchData(); // Replace with your data fetching logic
 
     return (
         <div>
